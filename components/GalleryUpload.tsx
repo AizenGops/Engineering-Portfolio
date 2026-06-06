@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 
+const editingEnabled = process.env.NEXT_PUBLIC_ENABLE_EDITING === "true";
+
 interface Props {
   slug: string;
   initialImages: string[];
@@ -52,15 +54,22 @@ export default function GalleryUpload({ slug, initialImages }: Props) {
         </span>
       </div>
 
-      <input
-        ref={inputRef}
-        type="file"
-        accept="image/*"
-        multiple
-        className="hidden"
-        onChange={(e) => handleFiles(e.target.files)}
-      />
+      {editingEnabled && (
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+      )}
 
+      {!editingEnabled && images.length === 0 && (
+        <p className="text-sm text-text-muted">No images added for this project yet.</p>
+      )}
+
+      {(editingEnabled || images.length > 0) && (
       <div className={`grid gap-4 ${
         images.length === 0
           ? "grid-cols-1"
@@ -79,36 +88,42 @@ export default function GalleryUpload({ slug, initialImages }: Props) {
               />
             </button>
             {/* Delete overlay */}
-            <button
-              onClick={() => removeImage(src)}
-              className="absolute top-2 right-2 w-7 h-7 rounded bg-black/60 text-white/70 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover:opacity-100 text-xs font-mono flex items-center justify-center"
-              title="Remove image"
-            >
-              ×
-            </button>
+            {editingEnabled && (
+              <button
+                onClick={() => removeImage(src)}
+                className="absolute top-2 right-2 w-7 h-7 rounded bg-black/60 text-white/70 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover:opacity-100 text-xs font-mono flex items-center justify-center"
+                title="Remove image"
+              >
+                ×
+              </button>
+            )}
           </div>
         ))}
 
         {/* Upload card */}
-        <button
-          onClick={() => inputRef.current?.click()}
-          disabled={uploading}
-          className="aspect-video rounded-xl border-2 border-dashed border-bg-border hover:border-accent-cyan/50 bg-bg-card hover:bg-accent-cyan/5 transition-all flex flex-col items-center justify-center gap-2 group disabled:opacity-50"
-        >
-          {uploading ? (
-            <span className="font-mono text-xs text-text-muted animate-pulse">uploading...</span>
-          ) : (
-            <>
-              <span className="text-3xl font-light text-text-muted group-hover:text-accent-cyan transition-colors leading-none">+</span>
-              <span className="font-mono text-xs text-text-muted group-hover:text-accent-cyan transition-colors">
-                add image{images.length > 0 ? "s" : ""}
-              </span>
-            </>
-          )}
-        </button>
+        {editingEnabled && (
+          <button
+            onClick={() => inputRef.current?.click()}
+            disabled={uploading}
+            className="aspect-video rounded-xl border-2 border-dashed border-bg-border hover:border-accent-cyan/50 bg-bg-card hover:bg-accent-cyan/5 transition-all flex flex-col items-center justify-center gap-2 group disabled:opacity-50"
+          >
+            {uploading ? (
+              <span className="font-mono text-xs text-text-muted animate-pulse">uploading...</span>
+            ) : (
+              <>
+                <span className="text-3xl font-light text-text-muted group-hover:text-accent-cyan transition-colors leading-none">+</span>
+                <span className="font-mono text-xs text-text-muted group-hover:text-accent-cyan transition-colors">
+                  add image{images.length > 0 ? "s" : ""}
+                </span>
+              </>
+            )}
+          </button>
+        )}
       </div>
+      )}
 
       {/* Lightbox */}
+
       {lightbox && (
         <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6"

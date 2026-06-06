@@ -2,7 +2,8 @@ export type ProjectCategory =
   | "electrical-machines"
   | "electronics"
   | "automation"
-  | "iot-bms";
+  | "iot-bms"
+  | "usb-hid";
 
 export type ProjectStatus = "completed" | "in-progress" | "pending";
 
@@ -56,6 +57,10 @@ export const categoryMeta: Record<
   "iot-bms": {
     label: "Uninterrupted Power Supply (UPS) Systems",
     color: "text-accent-green border-accent-green",
+  },
+  "usb-hid": {
+    label: "USB HID Implementation",
+    color: "text-blue-400 border-blue-400",
   },
 };
 
@@ -146,7 +151,7 @@ export const projects: Project[] = [
   },
   {
     slug: "proteus-motor-controller",
-    title: "DC Motor Speed Controller — Proteus Simulation",
+    title: "Car Audio Amplifier Analysis",
     category: "electronics",
     categoryLabel: "Electronics & Firmware",
     status: "completed",
@@ -212,25 +217,6 @@ void check_overcurrent(void) {
       "Proteus simulation of the gate driver propagation delay was optimistic by ~15 ns in practice — important to add a dead-time margin beyond what simulation suggests.",
   },
   {
-    slug: "pic-temperature-monitor",
-    title: "Industrial Temperature Monitor — PIC + MikroC",
-    category: "electronics",
-    categoryLabel: "Electronics & Firmware",
-    status: "completed",
-    summary:
-      "Multi-channel temperature monitoring system using a PIC microcontroller, NTC thermistors, and a character LCD, with over-temperature relay output.",
-    description:
-      "Built a 4-channel temperature monitoring unit designed for panel-mounting in an industrial enclosure. Each channel reads an NTC thermistor through the PIC ADC, applies a Steinhart-Hart linearisation, and displays readings on a 2×16 character LCD. A configurable alarm threshold triggers a relay output for fan or shutdown control. The full circuit was first validated in Proteus before the hardware build.",
-    tools: ["Proteus", "MikroC", "PIC Microcontroller", "AutoCAD Electrical"],
-    highlights: [
-      "Steinhart-Hart NTC linearisation implemented in fixed-point arithmetic",
-      "EEPROM-stored alarm thresholds — survive power cycle",
-      "Relay output with configurable hysteresis to prevent chatter",
-      "Panel-mount enclosure wiring diagram produced in AutoCAD Electrical",
-    ],
-    images: [],
-  },
-  {
     slug: "ignition-scada-pump-station",
     title: "Pump Station SCADA — Ignition",
     category: "automation",
@@ -253,7 +239,7 @@ void check_overcurrent(void) {
   },
   {
     slug: "node-red-iot-bms",
-    title: "BMS & IoT Monitoring — Node-RED + MQTT",
+    title: "SHOTO Battery Bank Design",
     category: "iot-bms",
     categoryLabel: "Uninterrupted Power Supply (UPS) Systems",
     status: "completed",
@@ -311,7 +297,7 @@ function ocvLookup(v) {
   },
   {
     slug: "omnictrl-bms-scada",
-    title: "OmniCtrl — Integrated BMS, SCADA & IoT Platform",
+    title: "Rectifier System Build",
     category: "iot-bms",
     categoryLabel: "Uninterrupted Power Supply (UPS) Systems",
     status: "in-progress",
@@ -326,5 +312,52 @@ function ocvLookup(v) {
       "Hardware edge nodes reporting to centralised broker",
     ],
     images: [],
+  },
+  {
+    slug: "usb-hid-joystick-controller",
+    title: "USB HID Joystick Controller — PIC18F4550",
+    category: "usb-hid",
+    categoryLabel: "USB HID Implementation",
+    status: "completed",
+    summary:
+      "Custom USB HID joystick built on a PIC18F4550, enumerating as a native game controller with analog axes, a point-of-view hat, and digital buttons — no third-party drivers required.",
+    description:
+      "Designed and built a fully custom USB Human Interface Device joystick around the PIC18F4550's native USB peripheral. The firmware implements the USB descriptor set (device, configuration, HID class, and report descriptors) and a custom HID report descriptor describing a joystick with simulation-control axes (throttle, brake, steering), generic desktop axes (Rx, Ry, Y), a point-of-view hat switch, and four buttons. Analog axes are read through the on-chip ADC from potentiometer inputs, while the POV hat supports both analog and digital input modes. Because the device enumerates using the standard HID joystick usage page, Windows recognises it natively through Game Controllers without any custom driver — verified directly in the HID Manipulator test panel.",
+    tools: ["MikroC", "PIC18F4550", "USB HID Class", "AutoCAD Electrical"],
+    highlights: [
+      "Custom HID report descriptor — joystick collection with simulation and generic desktop usage pages",
+      "Native USB enumeration on PIC18F4550 with custom Vendor/Product ID and string descriptors",
+      "Analog axis acquisition (throttle, brake, steering, Rx/Ry/Y) via on-chip ADC and potentiometer inputs",
+      "Dual-mode point-of-view hat — analog potentiometer or digital 4-direction button input",
+      "Verified end-to-end against Windows Game Controllers / HID Manipulator with no custom drivers",
+    ],
+    images: [],
+    codeSnippets: [
+      {
+        label: "HID Report Descriptor — Usage Declarations (excerpt)",
+        language: "c",
+        code: `// HID report descriptor — joystick usage declarations (excerpt)
+const struct { char report[]; } hid_rpt_desc = {
+    0x05, 0x01,   // USAGE_PAGE (Generic Desktop)
+    0x09, 0x04,   // USAGE (Joystick)
+    0xa1, 0x01,   // COLLECTION (Application)
+    0x05, 0x02,   //   USAGE_PAGE (Simulation Controls)
+    0x09, 0xbb,   //   USAGE (Throttle)
+    0x09, 0xc5,   //   USAGE (Brake)
+    0x09, 0xc8,   //   USAGE (Steering)
+    0x05, 0x01,   //   USAGE_PAGE (Generic Desktop)
+    0x09, 0x33,   //   USAGE (Rx)
+    0x09, 0x34,   //   USAGE (Ry)
+    0x09, 0x31,   //   USAGE (Y)
+    0x09, 0x39,   //   USAGE (Hat switch)
+    0x05, 0x09,   //   USAGE_PAGE (Button)
+    0x19, 0x01,   //   USAGE_MINIMUM (Button 1)
+    0x29, 0x04,   //   USAGE_MAXIMUM (Button 4)
+    0xc0          // END_COLLECTION
+};`,
+      },
+    ],
+    learnings:
+      "Getting the device to enumerate as a native HID joystick — rather than a generic HID device requiring a custom driver — came down entirely to matching the report descriptor's usage pages and collection structure to what the OS's HID class driver expects.",
   },
 ];

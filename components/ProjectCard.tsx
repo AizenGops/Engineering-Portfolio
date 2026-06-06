@@ -1,15 +1,16 @@
+"use client";
+
 import Link from "next/link";
-import { Project, categoryMeta } from "@/data/projects";
+import { Project, categoryMeta, ProjectStatus } from "@/data/projects";
+import StatusToggle from "@/components/StatusToggle";
 
-const statusConfig = {
-  completed: { label: "Completed", className: "text-accent-green bg-accent-green/10 border-accent-green/30" },
-  "in-progress": { label: "In Progress", className: "text-accent-amber bg-accent-amber/10 border-accent-amber/30" },
-  pending: { label: "Pending", className: "text-text-secondary bg-white/5 border-white/10" },
-};
+interface Props {
+  project: Project;
+  onStatusChange?: (slug: string, status: ProjectStatus) => void;
+}
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, onStatusChange }: Props) {
   const meta = categoryMeta[project.category];
-  const status = statusConfig[project.status];
 
   return (
     <Link href={`/projects/${project.slug}`} className="block">
@@ -20,11 +21,11 @@ export default function ProjectCard({ project }: { project: Project }) {
           >
             {meta.label}
           </span>
-          <span
-            className={`text-xs font-medium px-2.5 py-1 rounded-full border ${status.className}`}
-          >
-            {status.label}
-          </span>
+          <StatusToggle
+            slug={project.slug}
+            status={project.status}
+            onChange={(status) => onStatusChange?.(project.slug, status)}
+          />
         </div>
 
         <div className="flex-1">

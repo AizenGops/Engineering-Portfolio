@@ -69,7 +69,7 @@ export const disciplines = [
     label: "text-purple-400",
   },
   {
-    title: "USB HID",
+    title: "USB HID Implementation",
     desc: "Battery management monitoring, Node-RED MQTT flows, hardware edge builds, real-time dashboards.",
     accent: "border-accent-green/20 hover:border-accent-green/50",
     label: "text-accent-green",
@@ -99,7 +99,7 @@ export const about = {
     },
     {
       category: "Electronics & Firmware",
-      items: ["Proteus", "MikroC", "PIC Microcontrollers"],
+      items: ["Proteus", "MikroC", "PIC Microcontrollers", "USB HID Implementation"],
     },
     {
       category: "Industrial Automation",

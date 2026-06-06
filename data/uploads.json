@@ -20,5 +20,26 @@
     "/images/three-phase-stator-design/1780759659174_Capture.PNG",
     "/images/three-phase-stator-design/1780759664108_bicycle_motor2.PNG",
     "/images/three-phase-stator-design/1780760117970_motorcycle_motor.PNG"
+  ],
+  "node-red-iot-bms": [
+    "/images/node-red-iot-bms/1780764460222_battery_1.PNG",
+    "/images/node-red-iot-bms/1780764460252_battery_3.PNG",
+    "/images/node-red-iot-bms/1780764460275_battery_5.PNG",
+    "/images/node-red-iot-bms/1780764460300_battery2.PNG",
+    "/images/node-red-iot-bms/1780764460322_battery4.PNG",
+    "/images/node-red-iot-bms/1780764467635_battery_6.PNG"
+  ],
+  "usb-hid-joystick-controller": [
+    "/images/usb-hid-joystick-controller/1780773182502_Capture.PNG",
+    "/images/usb-hid-joystick-controller/1780773182526_usb2.PNG",
+    "/images/usb-hid-joystick-controller/1780773398269_usb5.PNG",
+    "/images/usb-hid-joystick-controller/1780773473598_usb6.PNG"
+  ],
+  "proteus-motor-controller": [
+    "/images/proteus-motor-controller/1780774403670_audio1.PNG",
+    "/images/proteus-motor-controller/1780774403710_audio2.PNG",
+    "/images/proteus-motor-controller/1780774403731_audio3.PNG",
+    "/images/proteus-motor-controller/1780774403754_audio4.PNG",
+    "/images/proteus-motor-controller/1780774403800_audio6.PNG"
   ]
 }

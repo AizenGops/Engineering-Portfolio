@@ -6,23 +6,10 @@ import { projects, categoryMeta } from "@/data/projects";
 import GalleryUpload from "@/components/GalleryUpload";
 import CodeBlock from "@/components/CodeBlock";
 import FileDownloads from "@/components/FileDownloads";
+import StatusToggle from "@/components/StatusToggle";
+import { getStatusOverrides } from "@/lib/projectStatus";
 
 export const dynamic = "force-dynamic";
-
-const statusConfig = {
-  completed: {
-    label: "Completed",
-    className: "text-accent-green bg-accent-green/10 border-accent-green/30",
-  },
-  "in-progress": {
-    label: "In Progress",
-    className: "text-accent-amber bg-accent-amber/10 border-accent-amber/30",
-  },
-  pending: {
-    label: "Pending",
-    className: "text-text-secondary bg-white/5 border-white/10",
-  },
-};
 
 async function getUploadedImages(slug: string): Promise<string[]> {
   try {
@@ -42,8 +29,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   const uploadedImages = await getUploadedImages(params.slug);
   const allImages = [...(project.images ?? []), ...uploadedImages];
 
+  const overrides = await getStatusOverrides();
+  const effectiveStatus = overrides[project.slug] ?? project.status;
+
   const meta = categoryMeta[project.category];
-  const status = statusConfig[project.status];
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
@@ -62,9 +51,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           <span className={`inline-flex items-center text-xs font-medium px-3 py-1 rounded-full border ${meta.color}`}>
             {meta.label}
           </span>
-          <span className={`text-xs font-medium px-3 py-1 rounded-full border ${status.className}`}>
-            {status.label}
-          </span>
+          <StatusToggle slug={project.slug} status={effectiveStatus} className="px-3 py-1" />
         </div>
 
         <h1 className="text-4xl font-bold text-text-primary mb-5 leading-tight">

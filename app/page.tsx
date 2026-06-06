@@ -2,9 +2,13 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { hero, stats, disciplines, featuredCount } from "@/data/content";
 import ProjectCard from "@/components/ProjectCard";
+import { getStatusOverrides, withEffectiveStatus, sortByStatus } from "@/lib/projectStatus";
 
-export default function HomePage() {
-  const featuredProjects = projects.slice(0, featuredCount);
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const overrides = await getStatusOverrides();
+  const featuredProjects = sortByStatus(withEffectiveStatus(projects, overrides)).slice(0, featuredCount);
 
   return (
     <>
