@@ -1,0 +1,24 @@
+{
+  "bldc-motor-design": [
+    "/images/three-phase-stator-design/1780755021562_BLDC1.PNG",
+    "/images/three-phase-stator-design/1780755036073_BLDC2.PNG",
+    "/images/bldc-motor-design/1780755778323_BLDC_3.PNG",
+    "/images/bldc-motor-design/1780756344399_bldc5.PNG",
+    "/images/bldc-motor-design/1780756349610_bldc4.PNG",
+    "/images/bldc-motor-design/1780756912809_bldc6.PNG",
+    "/images/bldc-motor-design/1780757554347_bldc8.PNG",
+    "/images/bldc-motor-design/1780757561885_bldc7.PNG"
+  ],
+  "dc-motor-design": [
+    "/images/dc-motor-design/1780757942925_dc1.PNG",
+    "/images/dc-motor-design/1780757948343_dc2.PNG",
+    "/images/dc-motor-design/1780758204689_dc3.PNG",
+    "/images/dc-motor-design/1780759225190_dc4.PNG"
+  ],
+  "three-phase-stator-design": [
+    "/images/three-phase-stator-design/1780759651002_bycycle_motor.PNG",
+    "/images/three-phase-stator-design/1780759659174_Capture.PNG",
+    "/images/three-phase-stator-design/1780759664108_bicycle_motor2.PNG",
+    "/images/three-phase-stator-design/1780760117970_motorcycle_motor.PNG"
+  ]
+}
