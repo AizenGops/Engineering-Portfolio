@@ -3,9 +3,12 @@ export type ProjectCategory =
   | "electronics"
   | "automation"
   | "iot-bms"
-  | "usb-hid";
+  | "usb-hid"
+  | "power-systems";
 
 export type ProjectStatus = "completed" | "in-progress" | "pending";
+
+export type ProjectType = "work" | "part-time";
 
 export interface CodeSnippet {
   label: string;       // e.g. "PI Control Loop"
@@ -25,6 +28,7 @@ export interface Project {
   category: ProjectCategory;
   categoryLabel: string;
   status: ProjectStatus;
+  projectType: ProjectType;
   summary: string;
   description: string;
   tools: string[];
@@ -62,15 +66,104 @@ export const categoryMeta: Record<
     label: "USB HID Implementation",
     color: "text-blue-400 border-blue-400",
   },
+  "power-systems": {
+    label: "Power Systems & Installation",
+    color: "text-orange-400 border-orange-400",
+  },
 };
 
 export const projects: Project[] = [
+  {
+    slug: "generator-audit",
+    title: "Generator Audit",
+    category: "power-systems",
+    categoryLabel: "Power Systems & Installation",
+    status: "completed",
+    projectType: "work",
+    summary:
+      "Comprehensive audit of standby generator sets covering mechanical condition, electrical performance, fuel system integrity, and compliance with site requirements.",
+    description:
+      "Conducted a full audit of standby generator installations across site. The scope covered visual inspection of the generating sets, assessment of mechanical condition (cooling system, exhaust, fuel lines), electrical testing (insulation resistance, voltage and frequency output under load), review of protection relay settings, and verification of control panel functionality. Findings were documented with recommendations for corrective maintenance and compliance gaps.",
+    tools: ["AutoCAD Electrical", "Multimeter", "Insulation Tester"],
+    highlights: [
+      "Mechanical and visual inspection of generator set components",
+      "Electrical performance testing under load conditions",
+      "Protection relay and control panel verification",
+      "Compliance assessment against site and OEM requirements",
+      "Documented findings and maintenance recommendations report",
+    ],
+    images: [],
+  },
+  {
+    slug: "data-centre-generator-isolation",
+    title: "Data Centre Generator Isolation System Implementation",
+    category: "power-systems",
+    categoryLabel: "Power Systems & Installation",
+    status: "completed",
+    projectType: "work",
+    summary:
+      "Design and implementation of a generator isolation system for a data centre facility, ensuring safe maintenance switching and continuity of critical power supply.",
+    description:
+      "Implemented a generator isolation system for a data centre environment where uninterrupted power is critical. The project involved designing the isolation switching scheme, coordinating with the facility team on maintenance window planning, producing isolation drawings in AutoCAD Electrical, and overseeing the physical installation and commissioning of isolation points. The system allows generator sets to be safely isolated for maintenance without interrupting the data centre's UPS-backed critical load.",
+    tools: ["AutoCAD Electrical", "Switchgear", "UPS Systems"],
+    highlights: [
+      "Isolation switching scheme design for critical load continuity",
+      "AutoCAD Electrical isolation and single-line drawings",
+      "Coordination with facility team for zero-downtime implementation",
+      "Physical installation and commissioning of isolation points",
+      "Handover documentation and isolation procedure sign-off",
+    ],
+    images: [],
+  },
+  {
+    slug: "generating-set-relocation",
+    title: "Generating Set Relocation",
+    category: "power-systems",
+    categoryLabel: "Power Systems & Installation",
+    status: "completed",
+    projectType: "work",
+    summary:
+      "Planning and execution of generating set relocation including mechanical de-installation, transport coordination, civil preparation at the new site, and recommissioning.",
+    description:
+      "Managed the relocation of a generating set from its existing installation to a new site position. The project covered de-installation planning, safe disconnection of electrical and fuel supplies, mechanical lifting and transport coordination, civil preparation at the destination (plinth, fuel bund, exhaust routing), and full recommissioning including load testing and protection verification after reinstallation.",
+    tools: ["AutoCAD Electrical", "Load Bank", "Commissioning Tools"],
+    highlights: [
+      "De-installation planning and safe disconnection procedures",
+      "Mechanical lifting and transport coordination",
+      "Civil preparation at destination site — plinth, fuel bund, exhaust",
+      "Electrical reconnection and fuel system reinstatement",
+      "Recommissioning load test and protection verification",
+    ],
+    images: [],
+  },
+  {
+    slug: "generating-set-installation",
+    title: "Generating Set Installation",
+    category: "power-systems",
+    categoryLabel: "Power Systems & Installation",
+    status: "completed",
+    projectType: "work",
+    summary:
+      "End-to-end installation of a standby generating set including civil works, mechanical installation, electrical connection, fuel system commissioning, and load testing.",
+    description:
+      "Executed a full generating set installation from initial site survey through to final handover. Scope included civil preparation (plinth design, fuel bund, exhaust run), mechanical installation and anti-vibration mounting, electrical cabling from the genset to the main distribution board, fuel system piping and tank connection, and commissioning with a staged load bank test to verify output voltage, frequency, and protection relay operation under full load.",
+    tools: ["AutoCAD Electrical", "Load Bank", "Commissioning Tools", "Cable Sizing"],
+    highlights: [
+      "Site survey and civil preparation — plinth, exhaust routing, fuel bund",
+      "Mechanical installation with anti-vibration mounting",
+      "Electrical cabling and main distribution board connection",
+      "Fuel system piping and bulk tank integration",
+      "Staged load bank commissioning test to full rated output",
+    ],
+    images: [],
+  },
   {
     slug: "dc-motor-design",
     title: "Brushed DC Motor — Stator & Rotor Design",
     category: "electrical-machines",
     categoryLabel: "Electrical Machines",
     status: "in-progress",
+    projectType: "part-time",
     summary:
       "Full rotor and stator geometry for a brushed DC motor including commutator layout, lap winding diagram, and brush gear arrangement. Termination and brush gear routing is pending.",
     description:
@@ -93,6 +186,7 @@ export const projects: Project[] = [
     category: "electrical-machines",
     categoryLabel: "Electrical Machines",
     status: "in-progress",
+    projectType: "part-time",
     summary:
       "Stator lamination, concentrated winding layout, and pole/slot selection for a BLDC motor targeting a trapezoidal back-EMF profile. Phase lead-out termination is pending.",
     description:
@@ -115,6 +209,7 @@ export const projects: Project[] = [
     category: "electrical-machines",
     categoryLabel: "Electrical Machines",
     status: "in-progress",
+    projectType: "part-time",
     summary:
       "Full stator and rotor geometry for a 3-phase induction motor including lamination stack, slot profile, distributed winding layout, and rotor bar profiling. Termination routing is pending.",
     description:
@@ -137,6 +232,7 @@ export const projects: Project[] = [
     category: "electrical-machines",
     categoryLabel: "Electrical Machines",
     status: "in-progress",
+    projectType: "part-time",
     summary:
       "Winding layout and coil geometry study for a coreless axial flux motor. Conductor sizing and termination pending.",
     description:
@@ -155,6 +251,7 @@ export const projects: Project[] = [
     category: "electronics",
     categoryLabel: "Electronics & Firmware",
     status: "completed",
+    projectType: "part-time",
     summary:
       "PWM-based DC motor speed controller designed, simulated in Proteus, and implemented with MikroC firmware on a PIC microcontroller.",
     description:
@@ -222,6 +319,7 @@ void check_overcurrent(void) {
     category: "automation",
     categoryLabel: "Industrial Automation",
     status: "completed",
+    projectType: "part-time",
     summary:
       "Ignition-based SCADA system for a multi-pump station with real-time monitoring, alarm management, and historian trending.",
     description:
@@ -243,6 +341,7 @@ void check_overcurrent(void) {
     category: "iot-bms",
     categoryLabel: "Uninterrupted Power Supply (UPS) Systems",
     status: "completed",
+    projectType: "part-time",
     summary:
       "Battery Management System monitoring platform using Node-RED flows, MQTT broker, and a dashboard for real-time cell voltage, temperature, and SoC visualisation.",
     description:
@@ -301,6 +400,7 @@ function ocvLookup(v) {
     category: "iot-bms",
     categoryLabel: "Uninterrupted Power Supply (UPS) Systems",
     status: "in-progress",
+    projectType: "part-time",
     summary:
       "Unified control platform combining BMS monitoring, SCADA data aggregation, and IoT edge connectivity into a single Node-RED based system.",
     description:
@@ -319,6 +419,7 @@ function ocvLookup(v) {
     category: "usb-hid",
     categoryLabel: "USB HID Implementation",
     status: "completed",
+    projectType: "part-time",
     summary:
       "Custom USB HID joystick built on a PIC18F4550, enumerating as a native game controller with analog axes, a point-of-view hat, and digital buttons — no third-party drivers required.",
     description:

@@ -37,9 +37,9 @@ export const hero = {
   firstName: "Gophela",
   lastName: "Seiphepi",
   tagline:
-    "Electrical engineer working across machine design, embedded electronics, industrial automation, and IoT systems — from winding diagrams to SCADA dashboards to hardware builds.",
+    "Electrical engineer working across machine design, embedded electronics, industrial automation as well as IoT systems, projects I have partook in involve AutoCAD Electrical and SolidWorks where I made various alternator and motor designs and analysis carried out in Ansys Maxwell, I have also done several electronics softwares in the fields of USB HID implementation in proteus using PIC microcontrollers as well as code compilation carried out in MikroC for pic. Milestones have also been achieved throughout my lfe as an elecrical and electronics engineer such as Gaining vast knowledge in Audio amplifiers and the inner workings of the BJT as well as MOSFET transistors and their application, simulations and small signal analysis were carried out in PSpice Orcad  software to and also the pulse width modulation power supply was simulated in Proteus software.Lately I have been focusing on Building Management Systems as well as SCADA systems using various SCADA softwared as well as Node RED with the help of MQTT Explorer, Mosquitto Broker mainly focusing on MQTT implementation for now and will later progress to OPCUA devices and TCP netwrok protocol. , I have built various applications in Ignition such as a pump station SCADA system and a BMS monitoring system using Node-RED and MQTT. ",
   ctaPrimary: "View Projects",
-  ctaSecondary: "Get in Touch",
+  ctaSecondary: "Get in Touch,",
 };
 
 export const stats = [
@@ -52,25 +52,25 @@ export const stats = [
 export const disciplines = [
   {
     title: "Electrical Analysis & Design",
-    desc: "Stator & rotor design, winding layouts, lamination geometry — SolidWorks & AutoCAD Electrical.",
+    desc: "Stator & rotor design of mainly 3 phase induction motors and alternators(both salient and cylindrical type) as well as synchronous reluctance motors, winding layouts, excitation type, electrical theories such as Blondel's two-armature reaction theory which I believe is a powerful electrical framework and approach for analyzing salient-pole synchronous machines, lamination geometry made in SolidWorks & AutoCAD Electrical and analysis carried out in Ansys Maxwell.",
     accent: "border-accent-cyan/20 hover:border-accent-cyan/50",
     label: "text-accent-cyan",
   },
   {
-    title: "Amplifier Design",
-    desc: "Circuit design, Proteus simulation, PIC firmware in MikroC — from schematic to working hardware.",
+    title: "Electronic Amplifier Design",
+    desc: "Electronic circuit design and analysis of the differential amplifier which is the heart of any amplifier system, mainly implemented at the input stage due to its appealing common mode rejection ratio, voltage stage as well as output stage implementation an analysis both calculations made by hand as well as simulation in Pspice Orcad software, a very powerful tool!. My focus is mostly on class AB amplifiers since they are mostly implemented in car audio amplifiers, also, they are of moderate complexity and have good efficiency and linearity, I have also done some work on class D amplifiers which are switching amplifiers and are very efficient but have a more complex design process.",
     accent: "border-accent-amber/20 hover:border-accent-amber/50",
     label: "text-accent-amber",
   },
   {
     title: "Industrial Automation(SCADA & BMS)",
-    desc: "Ignition SCADA applications — tag architecture, Perspective HMI, alarm pipelines, historian trending.",
+    desc: "Ignition SCADA applications — tag architecture, Perspective HMI, alarm pipelines, historian trending as well as MQTT implementation carried out in Node Red, I have recently started working on these SCADA and BMS projects.",
     accent: "border-purple-400/20 hover:border-purple-400/50",
     label: "text-purple-400",
   },
   {
-    title: "USB HID Implementation",
-    desc: "Battery management monitoring, Node-RED MQTT flows, hardware edge builds, real-time dashboards.",
+    title: "USB HID",
+    desc: "USB HID implementation has been the most complex field I have worked on!, from configuring USB descriptors for a mouse, gaming wheel as well as joystick to reading USB HID usages, USB protocols and device communication as well as device enumeration and a ton of trial and error! until i found Emil Enchev's USB joystick implementation in mikroc forum which was a great resource and guide for me to understand the complex USB HID protocol. USB device simulation was carried out in proteus and the firmware works really well, cant wait to start the hardware build",
     accent: "border-accent-green/20 hover:border-accent-green/50",
     label: "text-accent-green",
   },
@@ -87,9 +87,9 @@ export const about = {
 
   // Each string is one paragraph
   bio: [
-    "I'm Gophela Seiphepi, an electrical engineer with hands-on experience across the full spectrum from machine design through to industrial automation and IoT systems.",
-    "My work spans designing stator and rotor geometry in SolidWorks, producing winding and circuit diagrams in AutoCAD Electrical, building and simulating electronic circuits with Proteus and MikroC, and deploying SCADA systems using Ignition. More recently I've been working extensively with Node-RED, MQTT, and hardware builds for IoT and BMS applications.",
-    "I approach engineering problems practically — I prefer validating designs in simulation before committing to hardware, and I document technical decisions clearly so that work can be continued, maintained, or handed over cleanly.",
+    "I'm Gophela Seiphepi, an electrical and electronics engineer with an unquenchable thirst for knowledge advancement and hands on experience across the full spectrum from machine design, Electronics design and analysis, USB HID implementation through to industrial automation and IoT systems.",
+    "My work spans designing stator and rotor geometry in SolidWorks, producing winding and circuit diagrams in AutoCAD Electrical, building and simulating electronic circuits with Proteus and MikroC and deploying SCADA systems using Ignition. More recently I've been working extensively with Node-RED, MQTT, and hardware builds for IoT and BMS applications.",
+    "I approach engineering problems practically, I strongly believe in analysis both in hand calculation as well as validating designs in simulation before committing to hardware, I document technical decisions clearly so that work can be continued, maintained, or handed over cleanly. I also rotate between different disciplines to keep my skills sharp across the board and to bring a holistic perspective to each project and also to give myself a bit of some time off one project giving me a hard time so I can come back a few days with a fresh mind and perspective",
   ],
 
   tools: [
@@ -99,11 +99,11 @@ export const about = {
     },
     {
       category: "Electronics & Firmware",
-      items: ["Proteus", "MikroC", "PIC Microcontrollers", "USB HID Implementation"],
+      items: ["Proteus", "MikroC","VScode" ,"Pspice Orcad","PIC Microcontrollers"],
     },
     {
-      category: "Industrial Automation",
-      items: ["Ignition SCADA", "Perspective", "OPC-UA", "Alarm Pipelines"],
+      category: "Industrial Automation & IoT Systems",
+      items: ["Ignition SCADA", "Perspective", "OPC-UA", "MQTT Explorer","Node-RED", "MQTT", "ESP 12-E 8266 board"],
     },
     {
       category: "IoT & Systems",
@@ -116,20 +116,15 @@ export const about = {
       period: "Ongoing",
       title: "OmniCtrl — Integrated BMS, SCADA & IoT",
       detail:
-        "Building a unified control and monitoring platform combining BMS telemetry, SCADA tag data, and IoT edge nodes through a common MQTT backbone.",
+        "Building a unified control and monitoring platform combining SCADA tag data and IoT edge nodes through a common MQTT backbone.",
     },
     {
       period: "Recent",
-      title: "Ignition SCADA — Pump Station",
+      title: "SCADA Pump Station",
       detail:
         "Full SCADA application covering tag architecture, UDT design, Perspective HMI, alarm pipeline, and historian integration.",
     },
-    {
-      period: "Recent",
-      title: "BMS IoT Monitoring — Node-RED",
-      detail:
-        "MQTT-based telemetry platform for lithium battery pack monitoring with SoC estimation, cell balancing alerts, and real-time dashboard.",
-    },
+    
     {
       period: "Earlier",
       title: "Electrical Machine Design",
@@ -140,7 +135,7 @@ export const about = {
       period: "Earlier",
       title: "Embedded Systems — Proteus & MikroC",
       detail:
-        "PIC-based embedded projects including PWM motor controllers and multi-channel temperature monitoring systems.",
+        "PIC-based embedded projects including PWM based power supplies and class AB amplifiers and differential amplifiers",
     },
   ],
 };
@@ -162,6 +157,12 @@ export const contact = {
       description: "Best for project enquiries and collaboration.",
     },
     {
+      label: "Phone Number",
+      value: "+26774124330",
+      href: "tel:+26774124330",
+      description: "Best for project enquiries and collaboration.",
+    },
+    {
       label: "LinkedIn",
       value: "linkedin.com/in/gophela-seiphepi",
       href: "https://www.linkedin.com/in/gophela-seiphepi",
@@ -177,7 +178,7 @@ export const contact = {
     "Contract embedded systems work",
   ],
 
-  availabilityStatus: "Currently available for new projects",
+  availabilityStatus: "Currently available for new projects it me up on LinkedIn or send me an email or call me",
 };
 
 // ============================================================

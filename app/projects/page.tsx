@@ -37,6 +37,9 @@ export default function ProjectsPage() {
     [activeCategory, sortedProjects]
   );
 
+  const workProjects = useMemo(() => filtered.filter((p) => p.projectType === "work"), [filtered]);
+  const partTimeProjects = useMemo(() => filtered.filter((p) => p.projectType === "part-time"), [filtered]);
+
   const counts = useMemo(() => {
     const c: Record<string, number> = { all: projects.length };
     for (const cat of Object.keys(categoryMeta)) {
@@ -60,7 +63,7 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="mb-10">
+      <div className="mb-12">
         <CategoryFilter
           active={activeCategory}
           onChange={setActiveCategory}
@@ -68,14 +71,47 @@ export default function ProjectsPage() {
         />
       </div>
 
-      {filtered.length === 0 ? (
+      {/* Work Projects */}
+      {workProjects.length > 0 && (
+        <section className="mb-16">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="text-2xl font-bold text-text-primary">Work Projects</h2>
+            <span className="font-mono text-xs text-text-muted bg-white/5 border border-bg-border px-2.5 py-1 rounded-full">
+              {workProjects.length}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {workProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} onStatusChange={handleStatusChange} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Divider between sections */}
+      {workProjects.length > 0 && partTimeProjects.length > 0 && (
+        <div className="border-t border-bg-border mb-16" />
+      )}
+
+      {/* Part-time Projects */}
+      {partTimeProjects.length > 0 && (
+        <section className="mb-16">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="text-2xl font-bold text-text-primary">Part-time Projects</h2>
+            <span className="font-mono text-xs text-text-muted bg-white/5 border border-bg-border px-2.5 py-1 rounded-full">
+              {partTimeProjects.length}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {partTimeProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} onStatusChange={handleStatusChange} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {filtered.length === 0 && (
         <p className="text-text-muted text-center py-24">No projects in this category yet.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project) => (
-            <ProjectCard key={project.slug} project={project} onStatusChange={handleStatusChange} />
-          ))}
-        </div>
       )}
     </div>
   );
