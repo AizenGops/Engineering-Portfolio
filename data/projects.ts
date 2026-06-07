@@ -257,17 +257,16 @@ export const projects: Project[] = [
     summary:
       "Reverse engineered the PWM-based power supply of an existing car audio amplifier, simulated it in both Proteus and PSpice software, and went further to implement the hardware to gain full experience of how the PWM system works and its applications.",
     description:
-      "Designed a closed-loop PWM speed controller for a DC motor. The full schematic was drawn and simulated in Proteus, verifying gate drive timing, back-EMF feedback, and overcurrent protection before any hardware was built. Firmware was written in MikroC for PIC, implementing a PI control loop with configurable setpoint via potentiometer. The hardware build matched simulated behaviour within acceptable tolerance.",
-    tools: ["Proteus", "Pspice Orcad", "TL494 IC"],
+      "Reverse engineered the switch-mode power supply of an existing car audio amplifier to understand how its PWM stage steps the 12 V car battery up to the dual rails the amplifier needs. The supply is built around a TL494 PWM controller, so I traced the oscillator, dead-time and feedback network and rebuilt the schematic from the board. I simulated it in both Proteus and PSpice Orcad to check the switching waveforms and regulation before committing to hardware, then built the supply on the bench to confirm it behaved the way the simulation predicted. The aim was less about a finished product and more about getting hands-on with how a real PWM power supply is designed and where its practical limits show up.",
+    tools: ["Proteus", "PSpice Orcad", "TL494 IC"],
     highlights: [
-      "Full schematic simulation before breadboarding reduced hardware rework cycles",
-      "TL494",
-      
-      
+      "Full schematic simulation in Proteus and PSpice before breadboarding, which reduced hardware rework cycles",
+      "TL494-based PWM controller stage traced and rebuilt from the original board",
+      "Switching waveform and rail regulation verified in simulation against the hardware build",
     ],
     images: [],
     learnings:
-      "Proteus simulation of the gate driver propagation delay was optimistic by ~15 ns in practice — important to add a dead-time margin beyond what simulation suggests.",
+      "Reverse engineering the supply taught me far more than building from a reference design would have. Most of the learning came from matching the simulation to how the actual board behaved, especially around the TL494 feedback and dead-time setup.",
   },
   {
     slug: "node-red-iot-bms",
