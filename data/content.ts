@@ -93,25 +93,25 @@ export const stats = [
 export const disciplines = [
   {
     title: "Electrical Analysis & Design",
-    desc: "Stator & rotor design of mainly 3 phase induction motors and alternators(both salient and cylindrical type) as well as synchronous reluctance motors, winding layouts, excitation type, electrical theories such as Blondel's two-armature reaction theory which I believe is a powerful electrical framework and approach for analyzing salient-pole synchronous machines, lamination geometry made in SolidWorks & AutoCAD Electrical and analysis carried out in Ansys Maxwell.",
+    desc: "Stator & rotor design of mainly 3-phase induction motors and alternators (both salient and cylindrical type) as well as synchronous reluctance motors, winding layouts, excitation type, electrical theories such as Blondel's two-armature reaction theory which I believe is a powerful electrical framework and approach for analyzing salient-pole synchronous machines, lamination geometry made in SolidWorks & AutoCAD Electrical and analysis carried out in Ansys Maxwell.",
     accent: "border-accent-cyan/20 hover:border-accent-cyan/50",
     label: "text-accent-cyan",
   },
   {
     title: "Electronic Amplifier Design",
-    desc: "Electronic circuit design and analysis of the differential amplifier which is the heart of any amplifier system, mainly implemented at the input stage due to its appealing common mode rejection ratio, voltage stage as well as output stage implementation an analysis both calculations made by hand as well as simulation in Pspice Orcad software, a very powerful tool!. My focus is mostly on class AB amplifiers since they are mostly implemented in car audio amplifiers, also, they are of moderate complexity and have good efficiency and linearity, I have also done some work on class D amplifiers which are switching amplifiers and are very efficient but have a more complex design process.",
+    desc: "Electronic circuit design and analysis of the differential amplifier which is the heart of any amplifier system, mainly implemented at the input stage due to its appealing common-mode rejection ratio, voltage stage as well as output stage implementation and analysis, both calculations made by hand as well as simulation in PSpice Orcad software, a very powerful tool! My focus is mostly on class AB amplifiers since they are mostly implemented in car audio amplifiers, and they are of moderate complexity with good efficiency and linearity. I have also done some work on class D amplifiers, which are switching amplifiers and are very efficient but have a more complex design process.",
     accent: "border-accent-amber/20 hover:border-accent-amber/50",
     label: "text-accent-amber",
   },
   {
     title: "Industrial Automation(SCADA & BMS)",
-    desc: "Ignition SCADA applications — tag architecture, Perspective HMI, alarm pipelines, historian trending as well as MQTT implementation carried out in Node Red, I have recently started working on these SCADA and BMS projects.",
+    desc: "Ignition SCADA applications — tag architecture, Perspective HMI, alarm pipelines, historian trending as well as MQTT implementation carried out in Node-RED. I have recently started working on these SCADA and BMS projects.",
     accent: "border-purple-400/20 hover:border-purple-400/50",
     label: "text-purple-400",
   },
   {
     title: "USB HID",
-    desc: "USB HID implementation has been the most complex field I have worked on!, from configuring USB descriptors for a mouse, gaming wheel as well as joystick to reading USB HID usages, USB protocols and device communication as well as device enumeration and a ton of trial and error! until i found Emil Enchev's USB joystick implementation in mikroc forum which was a great resource and guide for me to understand the complex USB HID protocol. USB device simulation was carried out in proteus and the firmware works really well, cant wait to start the hardware build",
+    desc: "USB HID implementation has been the most complex field I have worked on! From configuring USB descriptors for a mouse, gaming wheel as well as joystick, to reading USB HID usages, USB protocols and device communication as well as device enumeration, and a ton of trial and error, until I found Emil Enchev's USB joystick implementation in the MikroC forum which was a great resource and guide for me to understand the complex USB HID protocol. USB device simulation was carried out in Proteus and the firmware works really well, can't wait to start the hardware build.",
     accent: "border-accent-green/20 hover:border-accent-green/50",
     label: "text-accent-green",
   },
@@ -129,9 +129,9 @@ export const about = {
 
   // Each string is one paragraph
   bio: [
-    "I'm Gophela Seiphepi, an electrical and electronics engineer with an unquenchable thirst for knowledge advancement and hands on experience across the full spectrum from machine design, Electronics design and analysis, USB HID implementation through to industrial automation and IoT systems.",
+    "I'm Gophela Seiphepi, an electrical and electronics engineer with an unquenchable thirst for knowledge advancement and hands-on experience across the full spectrum from machine design, electronics design and analysis, USB HID implementation through to industrial automation and IoT systems.",
     "My work spans designing stator and rotor geometry in SolidWorks, producing winding and circuit diagrams in AutoCAD Electrical, building and simulating electronic circuits with Proteus and MikroC and deploying SCADA systems using Ignition. More recently I've been working extensively with Node-RED, MQTT, and hardware builds for IoT and BMS applications.",
-    "I approach engineering problems practically, I strongly believe in analysis both in hand calculation as well as validating designs in simulation before committing to hardware, I document technical decisions clearly so that work can be continued, maintained, or handed over cleanly. I also rotate between different disciplines to keep my skills sharp across the board and to bring a holistic perspective to each project and also to give myself a bit of some time off one project giving me a hard time so I can come back a few days with a fresh mind and perspective",
+    "I approach engineering problems practically. I strongly believe in analysis, both in hand calculation as well as validating designs in simulation before committing to hardware, and I document technical decisions clearly so that work can be continued, maintained, or handed over cleanly. I also rotate between different disciplines to keep my skills sharp across the board and to bring a holistic perspective to each project, and to give myself some time off a project that is giving me a hard time so I can come back a few days later with a fresh mind and perspective.",
   ],
 
   tools: [
@@ -177,7 +177,7 @@ export const about = {
       period: "Earlier",
       title: "Embedded Systems — Proteus & MikroC",
       detail:
-        "PIC-based embedded projects including PWM based power supplies and class AB amplifiers and differential amplifiers",
+        "PIC-based embedded projects including PWM-based power supplies, class AB amplifiers, and differential amplifiers.",
     },
   ],
 };

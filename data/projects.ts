@@ -81,9 +81,9 @@ export const projects: Project[] = [
     status: "completed",
     projectType: "work",
     summary:
-      "Comprehensive audit of standby generator sets for BofiNet and BRES covering electrical and mechanical inspection, stochastic and block loading conditions tested and analyzed through a 750kW purely resistive loadbank with powerful data aquisition hardware and software for voltage,current, apparent power,active power,frequency and power factor measurement and analysis under the ISO 8528 standard to evaluate the performance and generating set's class(class G3 or G4). Alternator load rejection and load acceptance test was also carried out to asses AVR as well as governor performance, fuel system integrity and compliance with site requirements.",
+      "Comprehensive audit of standby generator sets for BofiNet and BRES covering electrical and mechanical inspection, stochastic and block loading conditions tested and analyzed through a 750kW purely resistive loadbank with powerful data acquisition hardware and software for voltage, current, apparent power, active power, frequency and power factor measurement and analysis under the ISO 8528 standard to evaluate the performance and generating set's class (class G3 or G4). Alternator load rejection and load acceptance tests were also carried out to assess AVR as well as governor performance, fuel system integrity and compliance with site requirements.",
     description:
-      "Conducted a full audit of standby generator installations across site. The scope covered visual inspection of the generating sets, assessment of mechanical condition (cooling system, exhaust, fuel lines) as well as electrical conditions(cable connnection checks, DSE controller protection configurations checks as well as engine protection component operation checks by simulating a fault prior to the test) , electrical testing ( voltage and frequency output response of both the AVR and govenor respectively under load and no load during load rejection steps and load acceptance steps). Findings were documented with recommendations for corrective maintenance and compliance gaps.",
+      "Conducted a full audit of standby generator installations across site. The scope covered visual inspection of the generating sets, assessment of mechanical condition (cooling system, exhaust, fuel lines) as well as electrical conditions (cable connection checks, DSE controller protection configuration checks as well as engine protection component operation checks by simulating a fault prior to the test), and electrical testing (voltage and frequency output response of both the AVR and governor respectively under load and no load during load rejection steps and load acceptance steps). Findings were documented with recommendations for corrective maintenance and compliance gaps.",
     tools: ["750kW Loadbank", "Fluke 376 True RMS clamp meter", "appropriate cables and connectors", "DSE Controller Configuration Software","Load bank data acquisition Software"],
     highlights: [
       "Mechanical and visual inspection of generator set components",
@@ -105,8 +105,8 @@ export const projects: Project[] = [
     summary:
       "Partook in the implementation of a generator isolation system for a data centre facility, ensuring safe maintenance switching and continuity of critical power supply.",
     description:
-      "Implemented a generator isolation system for a data centre environment where uninterrupted power is critical so much that a redundancy of n+1 is required to be maintained during the course of the iolation system project implementation. The project involved designing the isolation switching scheme, coordinating with the facility team on maintenance window planning, producing isolation drawings, and overseeing the physical installation and commissioning of isolation points. Thereafter isolation panel boards were installed. The system allows generator sets to be safely isolated for maintenance without interrupting the data centre's UPS-backed critical load.",
-    tools: ["AutoCAD Electrical", "Fluke 376 True RMS clamp meter", "crimping tool", "Pulse relays", "Gulvanized trunking", "e.t.c"],
+      "Implemented a generator isolation system for a data centre environment where uninterrupted power is critical, so much so that a redundancy of n+1 is required to be maintained during the course of the isolation system project implementation. The project involved designing the isolation switching scheme, coordinating with the facility team on maintenance window planning, producing isolation drawings, and overseeing the physical installation and commissioning of isolation points. Thereafter isolation panel boards were installed. The system allows generator sets to be safely isolated for maintenance without interrupting the data centre's UPS-backed critical load.",
+    tools: ["AutoCAD Electrical", "Fluke 376 True RMS clamp meter", "crimping tool", "Pulse relays", "Galvanized trunking", "etc."],
     highlights: [
       "Isolation switching scheme design for critical load continuity",
       "AutoCAD Electrical isolation and single-line drawings",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     highlights: [
       "De-installation planning and safe disconnection procedures",
       "Mechanical lifting and transport coordination",
-      "Civil preparation at destination site plinth preparation, cable sleeving, cable running, digging",
+      "Civil preparation at destination site: plinth preparation, cable sleeving, cable running, digging",
       "Electrical reconnection and fuel system reinstatement",
       "Recommissioning and protection verification",
     ],
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     status: "completed",
     projectType: "work",
     summary:
-      "End-to-end installation of a standby generating set including civil works, mechanical installation, electrical connection, fuel system commissioning",
+      "End-to-end installation of a standby generating set including civil works, mechanical installation, electrical connection, and fuel system commissioning.",
     description:
       "Executed a full generating set installation from initial site survey through to final handover. Scope included civil preparation (plinth design, fuel bund, exhaust run), mechanical installation and anti-vibration mounting, electrical cabling from the genset to the main distribution board, fuel system piping and tank connection, and commissioning with a staged load bank test to verify output voltage, frequency, and protection relay operation under full load.",
     tools: ["AutoCAD Electrical", "Load Bank", "Commissioning Tools", "Cable Sizing"],
@@ -154,7 +154,7 @@ export const projects: Project[] = [
       "Site survey and civil preparation — plinth, exhaust routing, fuel bund",
       "Mechanical installation with anti-vibration mounting",
       "Electrical cabling and main distribution board connection",
-      "configuration of DSE controller where necesssaryy to function according to new site requirements",
+      "Configuration of DSE controller where necessary to function according to new site requirements",
       
     ],
     images: [],
@@ -255,7 +255,7 @@ export const projects: Project[] = [
     status: "completed",
     projectType: "part-time",
     summary:
-      "Reverse engineered the PWM based power supply of an existing car audio amplifier, simulated it in both proteus and pspice software and went further on to implement the hardware to gain full experience on how the PWM system works and its applications.",
+      "Reverse engineered the PWM-based power supply of an existing car audio amplifier, simulated it in both Proteus and PSpice software, and went further to implement the hardware to gain full experience of how the PWM system works and its applications.",
     description:
       "Designed a closed-loop PWM speed controller for a DC motor. The full schematic was drawn and simulated in Proteus, verifying gate drive timing, back-EMF feedback, and overcurrent protection before any hardware was built. Firmware was written in MikroC for PIC, implementing a PI control loop with configurable setpoint via potentiometer. The hardware build matched simulated behaviour within acceptable tolerance.",
     tools: ["Proteus", "Pspice Orcad", "TL494 IC"],
