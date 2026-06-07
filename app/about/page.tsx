@@ -4,7 +4,10 @@ export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
       <div className="mb-16">
-        <h1 className="text-4xl font-bold text-text-primary mb-6">{about.heading}</h1>
+        <h1 className="text-4xl font-bold text-text-primary mb-3">{about.heading}</h1>
+        {about.lead && (
+          <p className="text-text-muted text-lg mb-8 max-w-2xl">{about.lead}</p>
+        )}
 
         <div className="space-y-5 text-text-secondary leading-relaxed text-base max-w-2xl">
           {about.bio.map((paragraph, i) => (

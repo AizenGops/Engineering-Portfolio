@@ -33,13 +33,54 @@ export const nav = {
 // ============================================================
 
 export const hero = {
-  eyebrow: "Engineering Portfolio",
+  eyebrow: "Electrical & Electronics Engineer",
   firstName: "Gophela",
   lastName: "Seiphepi",
+  headline: "I build the machines and circuits I can't stop thinking about.",
   tagline:
     "Electrical engineer who rotates between disciplines on purpose. I've designed motors and alternators in SolidWorks and AutoCAD Electrical, run analysis in Ansys Maxwell, written USB HID firmware in MikroC for PIC, and spent a good stretch on amplifier design and small-signal work in PSpice Orcad. Right now the focus is SCADA and BMS, building in Ignition, Node-RED, and MQTT, with OPC-UA next on the list.",
-  ctaPrimary: "View Projects",
-  ctaSecondary: "Get in Touch,",
+  ctaPrimary: "See what I've built",
+  ctaSecondary: "Say hello",
+};
+
+// ============================================================
+//  HOW I WORK — the principles I keep coming back to
+// ============================================================
+
+export const approach = {
+  heading: "How I work",
+  intro: "A handful of principles I keep coming back to, whatever the discipline.",
+  principles: [
+    {
+      title: "Start from first principles",
+      desc: "I like to know why something works before I trust it. The back-EMF behind a winding choice, the common-mode rejection behind an amplifier's input stage. That is where the good decisions come from.",
+    },
+    {
+      title: "Hand calculations, then simulation, then hardware",
+      desc: "I do the maths by hand, check it in simulation, and only then commit to hardware. By the time something gets built, it has already earned its place.",
+    },
+    {
+      title: "Rotate disciplines to stay sharp",
+      desc: "When a project starts giving me a hard time I switch to a different one and come back a few days later with a clearer head. Moving between machines, electronics and automation keeps every part of my thinking awake.",
+    },
+    {
+      title: "Document so the work outlives the moment",
+      desc: "I write the reasoning down so a project can be picked up, maintained or handed over without losing why each decision was made.",
+    },
+  ],
+};
+
+// Framing for the disciplines section on the home page
+export const disciplinesSection = {
+  heading: "The work I love",
+  intro: "Four disciplines I keep circling back to. Each one is here because I genuinely enjoy the problem, not just because it sits well on a CV.",
+};
+
+// Framing for the featured projects section on the home page
+export const featuredSection = {
+  heading: "Things I've been building",
+  intro: "A few projects I'm proud of. Some are finished, some are still on the bench.",
+  viewAll: "See all projects",
 };
 
 export const stats = [
@@ -83,7 +124,8 @@ export const featuredCount = 3; // how many projects to show on the home page
 // ============================================================
 
 export const about = {
-  heading: "About",
+  heading: "About me",
+  lead: "A bit about who I am, how I got here, and the tools I reach for.",
 
   // Each string is one paragraph
   bio: [
@@ -145,9 +187,9 @@ export const about = {
 // ============================================================
 
 export const contact = {
-  heading: "Contact",
+  heading: "Let's talk",
   intro:
-    "Open to project collaborations, consulting work, and full-time engineering roles. Reach out through any of the channels below.",
+    "I'm always happy to talk engineering, whether it's a project, a collaboration, or a full-time role. Pick whichever channel suits you and I'll get back to you.",
 
   methods: [
     {
@@ -178,7 +220,7 @@ export const contact = {
     "Contract embedded systems work",
   ],
 
-  availabilityStatus: "Currently available for new projects it me up on LinkedIn or send me an email or call me",
+  availabilityStatus: "Available for new projects. Reach me on LinkedIn, by email, or a quick call.",
 };
 
 // ============================================================
@@ -187,4 +229,5 @@ export const contact = {
 
 export const footer = {
   tagline: "Electrical Machines · Electronics · SCADA · IoT · BMS",
+  note: "Designed and built by hand, the same way I like to do everything else.",
 };

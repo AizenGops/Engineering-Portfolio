@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
-import { hero, stats, disciplines, featuredCount } from "@/data/content";
+import {
+  hero,
+  stats,
+  disciplines,
+  disciplinesSection,
+  approach,
+  featuredSection,
+  featuredCount,
+} from "@/data/content";
 import ProjectCard from "@/components/ProjectCard";
 import { getStatusOverrides, withEffectiveStatus, sortByStatus } from "@/lib/projectStatus";
 
@@ -30,7 +38,12 @@ export default async function HomePage() {
               <br />
               <span className="text-gradient-cyan">{hero.lastName}</span>
             </h1>
-            <p className="text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl animate-slide-up">
+
+            <p className="text-2xl sm:text-3xl text-text-primary font-medium leading-snug mb-6 max-w-2xl animate-slide-up">
+              {hero.headline}
+            </p>
+
+            <p className="text-lg text-text-secondary leading-relaxed mb-10 max-w-2xl animate-slide-up">
               {hero.tagline}
             </p>
 
@@ -65,19 +78,41 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Disciplines */}
+      {/* How I work */}
       <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-text-primary mb-3">
-            What I Work On
-          </h2>
-          <p className="text-text-secondary max-w-xl">
-            Engineering work spanning four disciplines — each with hands-on
-            project experience from design through to implementation.
-          </p>
+        <div className="mb-12 max-w-xl">
+          <h2 className="text-3xl font-bold text-text-primary mb-3">{approach.heading}</h2>
+          <p className="text-text-secondary">{approach.intro}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-bg-border rounded-xl overflow-hidden border border-bg-border">
+          {approach.principles.map(({ title, desc }, i) => (
+            <div
+              key={title}
+              className="bg-bg-card p-7 flex gap-5 hover:bg-bg-card/60 transition-colors"
+            >
+              <span className="font-mono text-sm text-accent-cyan/70 pt-1 flex-shrink-0">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-semibold text-text-primary mb-2">{title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* The work I love (disciplines) */}
+      <section className="max-w-6xl mx-auto px-6 pb-24">
+        <div className="mb-12 max-w-xl">
+          <h2 className="text-3xl font-bold text-text-primary mb-3">
+            {disciplinesSection.heading}
+          </h2>
+          <p className="text-text-secondary">{disciplinesSection.intro}</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {disciplines.map(({ title, desc, accent, label }) => (
             <div
               key={title}
@@ -90,20 +125,20 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Things I've been building (featured) */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="flex items-center justify-between mb-12">
-          <div>
+        <div className="flex items-end justify-between mb-12 gap-6">
+          <div className="max-w-xl">
             <h2 className="text-3xl font-bold text-text-primary mb-3">
-              Featured Projects
+              {featuredSection.heading}
             </h2>
-            <p className="text-text-secondary">A selection of recent work.</p>
+            <p className="text-text-secondary">{featuredSection.intro}</p>
           </div>
           <Link
             href="/projects"
-            className="text-sm text-accent-cyan hover:underline underline-offset-4 font-medium"
+            className="text-sm text-accent-cyan hover:underline underline-offset-4 font-medium whitespace-nowrap"
           >
-            View all →
+            {featuredSection.viewAll} →
           </Link>
         </div>
 
