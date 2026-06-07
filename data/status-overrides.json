@@ -1,6 +1,6 @@
 {
   "dc-motor-design": "in-progress",
-  "data-centre-generator-isolation": "in-progress",
-  "generating-set-relocation": "in-progress",
-  "generating-set-installation": "in-progress"
+  "data-centre-generator-isolation": "completed",
+  "generating-set-relocation": "completed",
+  "generating-set-installation": "completed"
 }
